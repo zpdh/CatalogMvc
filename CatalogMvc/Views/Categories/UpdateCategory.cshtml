@@ -1,0 +1,39 @@
+﻿@{
+ViewData["Title"] = "Update Category";
+}
+@model CategoryViewModel
+<h2>@ViewData["Title"]</h2>
+<hr/>
+
+<form asp-action="UpdateCategory">
+    <div class="form-horizontal">
+        <hr/>
+        <div asp-validation-summary="All" class="text-danger">
+            <div class="form-group">
+                <label asp-for="Name" class="col-md-2 control-label text-black"></label>
+                <div class="col-md-10">
+                    <input type="text" asp-for="Name" class="form-control"/>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="col-md-2 control-label text-black"></label>
+                <div class="col-md-10">
+                    <input type="text" asp-for="ImageUrl" class="form-control"/>
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group" style="padding-top: 10px">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Update" class="btn btn-success"/>
+                    <a asp-action="Index" class="btn btn-primary">Go back</a>
+                </div>
+            </div>
+        </div>
+        @if (@ViewBag.Error != null)
+        {
+        <h4 class="text-danger">@ViewBag.Error</h4>
+        }
+    </div>
+</form>
